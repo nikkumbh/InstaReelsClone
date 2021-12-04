@@ -7,12 +7,12 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
-import "./Signup.css";
+import "./Login.css";
 import insta from "../Assets/i2.jpg";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { Link } from "react-router-dom";
 
-export default function Signup() {
+export default function Login() {
   const useStyles = makeStyles({
     text1: {
       color: "grey",
@@ -26,6 +26,7 @@ export default function Signup() {
   const classes = useStyles();
   return (
     <div className="signupWrapper">
+        
       <div className="signupCard">
         <Card variant="outlined">
           <div className="insta-logo">

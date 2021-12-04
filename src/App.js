@@ -1,9 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-import Signup from './Components/Signup'
+import logo from "./logo.svg";
+import "./App.css";
+import Signup from "./Components/Signup";
+import { BrowserRouter } from "react-router-dom";
+import Login from "./Components/Login";
 function App() {
   return (
-    <Signup/>
+    <BrowserRouter>
+      {/* <Signup /> */}
+      <Login/>
+    </BrowserRouter>
   );
 }
 
