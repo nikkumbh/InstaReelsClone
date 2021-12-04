@@ -1,9 +1,9 @@
-.signupWrapper {
+.loginWrapper {
     display: flex;
     justify-content: center;
   }
   
-  .signupCard {
+  .loginCard {
     width: 27vw;
     margin-top: 5%;
   }
@@ -20,4 +20,18 @@
   .insta-logo img{
       width: 15vw;
   }
+
+  .imgcar {
+      margin-top: 3vh;
+      height: 590px;
+      width: 441px;
+      position: relative;
+  }
   
+  .car {
+      height: 423px;
+      width: 240px;
+      position: absolute;
+      left: 143px;
+      top: 93px;
+  }

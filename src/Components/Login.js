@@ -2,15 +2,22 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+//import FacebookIcon from '@mui/icons-material/Facebook';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import {CarouselProvider,  Slider,  Slide,  ButtonBack,  ButtonNext, Image} from "pure-react-carousel";
 import { makeStyles } from "@material-ui/styles";
-import Alert from "@mui/material/Alert";
 import TextField from "@mui/material/TextField";
 import "./Login.css";
+import instaLogin from "../Assets/instaLogin.png";
 import insta from "../Assets/i2.jpg";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { Link } from "react-router-dom";
+import img1 from "../Assets/img1.jpg";
+import img2 from "../Assets/img2.jpg";
+import img3 from "../Assets/img3.jpg";
+import img4 from "../Assets/img4.jpg";
+import img5 from "../Assets/img5.jpg";
 
 export default function Login() {
   const useStyles = makeStyles({
@@ -18,32 +25,59 @@ export default function Login() {
       color: "grey",
       textAlign: "center",
     },
+    text2: {
+      textAlign: "center",
+    },
+    text3: {
+      color: "black",
+      textAlign: "center",
+    },
     card2: {
-      height: '5vh',
-      marginTop: '2%',
+      height: "5vh",
+      marginTop: "2%",
     },
   });
   const classes = useStyles();
   return (
-    <div className="signupWrapper">
-        
-      <div className="signupCard">
+    <div className="loginWrapper">
+      <div
+        className="imgcar"
+        style={{
+          backgroundImage: "url(" + instaLogin + ")",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="car">
+          <CarouselProvider
+            visibleSlides={1}
+            totalSlides={5}
+            naturalSlideWidth={238}
+            naturalSlideHeight={423}
+            hasMasterSpinner
+            isPlaying={true}
+            infinite={true}
+            dragEnabled={false}
+            touchEnabled={false}
+          >
+            <Slider>
+              <Slide index={0}><Image src={img1}/></Slide>
+              <Slide index={1}><Image src={img2}/></Slide>
+              <Slide index={2}><Image src={img3}/></Slide>
+              <Slide index={3}><Image src={img4}/></Slide>
+              <Slide index={4}><Image src={img5}/></Slide>
+            </Slider>
+          </CarouselProvider>
+        </div>
+      </div>
+      <div className="loginCard">
         <Card variant="outlined">
           <div className="insta-logo">
             <img src={insta} alt="" />
           </div>
           <CardContent>
-            <Typography className={classes.text1} variant="subtitle1">
-              Sign up to see photos and videos from your friends
-            </Typography>
-            {true && (
-              <Alert severity="error">
-                This is an error alert — check it out!
-              </Alert>
-            )}
             <TextField
               id="outlined-basic"
-              label="Email"
+              label="Enter Email"
               variant="outlined"
               fullWidth={true}
               margin="dense"
@@ -57,45 +91,37 @@ export default function Login() {
               margin="dense"
               size="small"
             />
-            <TextField
-              id="outlined-basic"
-              label="Full Name"
-              variant="outlined"
-              fullWidth={true}
-              margin="dense"
-              size="small"
-            />
-            <Button
-              color="secondary"
-              fullWidth={true}
-              variant="outlined"
-              margin="dense"
-              startIcon={<CloudUploadIcon />}
-              component="label"
+            <Typography
+              className={classes.text2}
+              color="primary"
+              variant="subtitle1"
             >
-              UPLOAD PROFILE IMAGE
-              <input type="file" accept="images/*" hidden />
-            </Button>
+              Forgot Password?
+            </Typography>
           </CardContent>
           <CardActions>
             <Button color="primary" variant="contained" fullWidth={true}>
-              Sign Up
+              LOG IN
             </Button>
           </CardActions>
-          <CardContent>
-            <Typography className={classes.text1} variant="subtitle1">
-              By signing up, you agree to our Terms , Data Policy and Cookies Policy.
-            </Typography>
-          </CardContent>
         </Card>
         <Card variant="outlined" className={classes.card2}>
           <CardContent>
             <Typography className={classes.text1} variant="subtitle1">
-              Having an account ? <Link to="/login" style={{textDecoration: 'none'}}>Login</Link>
+              Don't have an account?
+              <Link to="/signup" style={{ textDecoration: "none" }}>
+                Sign up
+              </Link>
             </Typography>
-            </CardContent>
+          </CardContent>
         </Card>
-
+        <Typography
+          className={classes.text3}
+          marginTop="5%"
+          variant="subtitle1"
+        >
+          Get the app.
+        </Typography>
       </div>
     </div>
   );
